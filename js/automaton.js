@@ -224,24 +224,18 @@ function setupControls(){
       console.log(rules);
       let speed = document.getElementById('input-speed').value;
 
+      let e1 = parseInt(document.getElementById('e1').value);
+      let e2 = parseInt(document.getElementById('e2').value);
+      let f1 = parseInt(document.getElementById('f1').value);
+      let f2 = parseInt(document.getElementById('f2').value);
+
+
       switch(rules){
-        case 'life-trad':
-          runSim(customLife, speed, 2,3,3,3);
+        case 'life-moore':
+          runSim(mooreLife, speed, e1,e2,f1,f2);
           break;
-        case 'life-vn':
-          runSim(vnLife, speed);
-          break;
-        case 'life-4555':
-          runSim(customLife, speed, 4,5,5,5);
-          break;
-        case 'life-4666':
-          runSim(customLife, speed, 4,6,6,6);
-          break;
-        case 'life-5766':
-          runSim(customLife, speed, 5,7,6,6);
-          break;
-        case 'life-6877':
-          runSim(customLife, speed, 6,8,7,7);
+        case 'life-neumann':
+          runSim(vnLife, speed, e1,e2,f1,f2);
           break;
         default:
           alert('Not yet implemented.');
@@ -339,11 +333,12 @@ function gameOfLife(){// Conway's Life (1970) - Standard ruleset
 }
 
 
-function vnLife(){// Conway's Life cell rules, using Von Neumann neighbors
+
+function mooreLife(p1,p2,p3,p4){
   for (let i = 0; i < size; i++){
     for (let j = 0; j < size; j++){
       for (let k = 0; k < size; k++){
-        if (vnNeighbors3D(i,j,k) == 3 || (boardState[i][j][k] == 1 && vnNeighbors3D(i,j,k) == 2)){
+        if ( (boardState[i][j][k] == 1 && (mooreNeighbors3D(i,j,k) >= p1 && mooreNeighbors3D(i,j,k) <= p2)) || (boardState[i][j][k] == 0 && (mooreNeighbors3D(i,j,k) >= p3 && mooreNeighbors3D(i,j,k) <= p4) ) ){
           newState[i][j][k] = 1;
         }else{
           newState[i][j][k] = 0;
@@ -353,11 +348,11 @@ function vnLife(){// Conway's Life cell rules, using Von Neumann neighbors
   }
 }
 
-function customLife(p1,p2,p3,p4){
+function vnLife(p1,p2,p3,p4){
   for (let i = 0; i < size; i++){
     for (let j = 0; j < size; j++){
       for (let k = 0; k < size; k++){
-        if ( (boardState[i][j][k] == 1 && (mooreNeighbors3D(i,j,k) >= p1 && mooreNeighbors3D(i,j,k) <= p2)) || (boardState[i][j][k] == 0 && (mooreNeighbors3D(i,j,k) >= p3 && mooreNeighbors3D(i,j,k) <= p4) ) ){
+        if ( (boardState[i][j][k] == 1 && (vnNeighbors3D(i,j,k) >= p1 && vnNeighbors3D(i,j,k) <= p2)) || (boardState[i][j][k] == 0 && (vnNeighbors3D(i,j,k) >= p3 && vnNeighbors3D(i,j,k) <= p4) ) ){
           newState[i][j][k] = 1;
         }else{
           newState[i][j][k] = 0;

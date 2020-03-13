@@ -10,16 +10,17 @@
   </head>
   <body>
     <div id = "sidebar">
-      <h1>Multidimensional Cellular Automata</h1>
-      <label for="select-rules">Select a ruleset:</label>
+      <h1>3D Cellular Automata</h1>
+      <label for="select-rules">Select neighborhoods:</label>
       <select id="select-rules" name="ruleset">
-        <option value="life-trad">Conway's Life (2333)</option>
-        <option value="life-vn">Conway's Life (Von Neumann neighborhoods)</option>
-        <option value="life-4555">Life 4555</option>
-        <option value="life-4666">Life 4666</option>
-        <option value="life-5766">Life 5766</option>
-        <option value="life-6877">Life 6877</option>
+        <option value="life-moore">Moore Neighborhoods</option>
+        <option value="life-neumann">Von Neumann Neighborhoods</option>
       </select><br>
+      <label for="params">Input parameters <br><small>(E<sub>1</sub>, E<sub>2</sub>, F<sub>1</sub>, F<sub>2</sub>)</small></label><br>
+      <input type="number" id="e1" class="param" value="2">
+      <input type="number" id="e2" class="param" value="3">
+      <input type="number" id="f1" class="param" value="3">
+      <input type="number" id="f2" class="param" value="3"><br>
       <label for="input-size">Input size of cube:</label><br>
       <input type="number" id="input-size" value="20"><br>
       <label for="input-speed">Input cycle speed (ms):</label><br>

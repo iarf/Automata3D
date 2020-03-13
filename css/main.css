@@ -6,6 +6,7 @@
 }
 body{
   font-family: sans-serif;
+  font-size:.8em;
 }
 canvas{
   display:block;
@@ -57,4 +58,7 @@ button{
   margin-top:0px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffffff;
+}
+.param{
+  width:30px;
 }

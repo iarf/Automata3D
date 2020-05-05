@@ -28,7 +28,7 @@ The notation consists of 4 numeric values, defined as follows:
 ## Usage
 
 1. Input your desired ruleset, choosing from the neighborhood dropdown and inputting integers into the E- and F- values. (Note: the ruleset can be changed at any time when the simulation is stopped).
-2. Choose the size of the cube. Note that for performance reasons, above 70<sup>3<sup> is not recommended here.
+2. Choose the size of the cube. Note that for performance reasons, above 70<sup>3</sup> is not recommended here.
 3. Choose an interval to wait between generations, in miliseconds.
 4. Click "Initialize" to instantiate the game space.
 5. Use the 2 dimensional grid interface and level selector to set initially active cells. These will update visually in the three dimensional model as they are added.
